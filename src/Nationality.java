@@ -1,4 +1,4 @@
 
 public enum Nationality {
-	KAZAKH, RUSSIAN, UKRAINAIN;
+	KAZAKH, RUSSIAN, UKRAINAIN,CHINESE;
 }
