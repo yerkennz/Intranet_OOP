@@ -1,7 +1,9 @@
+package LabNewss;
+
 import java.util.Date;
 import java.util.Objects;
 
-public class Teacher extends Employee {
+public class Teacher extends Employee implements Editing,viewInformation, requestOfWorker {
 
 	private Degree Degree;
 	private List<Course> lessons;
@@ -124,3 +126,7 @@ public class Teacher extends Employee {
 	    
 	   
 	}
+
+
+	
+
