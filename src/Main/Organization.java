@@ -41,6 +41,9 @@ public class Organization {
 		this.president = president;
 	}
 	//--------------------------------------------------
+	/*
+	 * this method declares upcoming events
+	 */
 	public boolean makeAnnoucement(String str, Student student) {
 		if (this.president == student) {
 			announcements.add(str);
@@ -48,14 +51,23 @@ public class Organization {
 		}
 		return false;
 	}
+	/*
+	 * this method adds student to organization
+	 */	
 	public void addStudent(Student student) {
 		if (!members.contains(student))
 			members.add(student);
 	}
+	/*
+	 * this method adds student from organization
+	 */
 	public void removeStudent(Student student) {
 		if (members.contains(student))
 			members.remove(student);
 	}
+	/*
+	 * using this method you can create event 
+	 */
 	public boolean createEvent(Student creator, String nameOfEvent, String description) {
 		if (creator == this.president) {
 			Event event = new Event(nameOfEvent,description);
@@ -64,6 +76,9 @@ public class Organization {
 		}
 		return false;
 	}
+	/*
+	 * this method displays information about event
+	 */
 	public String showInfo() {
 		return "Name of organization: "+title+"\nPresident: "+president+"\nAmount of members: "+amountOfParticipant;
 	}
