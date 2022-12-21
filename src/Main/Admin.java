@@ -18,21 +18,33 @@ public class Admin extends Employee implements Comparable{
 		super(name, surname, id, birthDay, phoneNumber, email, hireDate, salary, insuranceNumber, prize, workExperience);
 	}
 //---------------------------------------------------------------------------------------------------------------
+	/*
+	 * 	this method adds a student to intranet
+	 */
 	public void addStudent(String name, String surname, String id, String password,Faculties faculty,Gender gender,Adress adress,
 			StudentDegree degree, int yearOFStudy) {
 		Student st = new Student(name,surname,id,password,faculty,gender,adress,degree,yearOFStudy);
 		Database.users.add(st);
 	}
+	/*
+	 * this method adds a teacher to intranet
+	 */
 	public void addTeacher(String name, String surname, String id, Date birthDay,String phoneNumber, String email,
 			int workExperience,Degree degree) {
 		Teacher th = new Teacher(name,surname,id,birthDay,phoneNumber,email,workExperience,degree);
 		Database.users.add(th);
 	}
+	/*
+	 * 	this method adds a manager to intranet	
+	 */
 	public void addManager(String name, String surname, String id, Date birthDay,String phoneNumber, String email,
 			int workExperience,Type managerType) {
 		Manager mg = new Manager(name,surname,id,birthDay,phoneNumber,email,workExperience,managerType);
 		Database.users.add(mg);
 	}
+	/*
+	 * this method remove everyone (except Admin) from intranet
+	 */
 	public boolean removeUser(String userID) {
 		for (User usr: Database.users) {
 			if (usr.getId().equals(userID)) {
@@ -42,7 +54,9 @@ public class Admin extends Employee implements Comparable{
 		}
 		return false;
 	}
-	
+	/*
+	 * this method show information about user
+	 */
 	public String showInfo() {
 		return "Name: "+this.getName()+"\nSurname: "+this.getSurname()+"\nID: "+this.getId();
 	}
