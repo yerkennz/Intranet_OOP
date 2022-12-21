@@ -141,6 +141,9 @@ public class Student extends User{
     	marks.put(c, m);
     }
 //------------------------------------------------------------------------------------------------------------------------	
+	/*
+     * here student can see ratings of teachers
+     */
 	public boolean makeQuestionaire(String name, String surname, double rating) {
 		for (User usr: Database.users) {
 			if (usr.getName().equals(name) && usr.getSurname().equals(surname)){
@@ -151,7 +154,9 @@ public class Student extends User{
 		}
 		return false;
 	}
-	
+	/*
+	 * this method is made to register for discipline
+	 */
 	public boolean registrationForDiciplines(String courseCode) throws CreditLimit{
 		Course registrationCourse = null;
 		if (Database.courses.size() >= 1) {
@@ -171,19 +176,28 @@ public class Student extends User{
 		}
 		return false;
 	}
-	
+	/*
+	 * this method shows transcript of student 
+	 */
 	public String viewTranscript() {
     	return this.transcript.showInfo(); 
     }
+	/*
+	 * here student sees attendance
+	 */
 	public String viewAttendance() {
 		return "";
 	}
-	
+	/*
+	 * this method displays own private information of student 
+	 */
 	public String viewPrivateInformation() {
 		return "Name: " + this.getName() + " " + this.getSurname()
 		+ "\nID: " + this.getId() + "\nFaculty: " + this.faculty + "\nGPA: "+ this.GPA;
 	}
-	
+	/*
+	 * student sees courses chosen by himself/herself
+	 */
 	public String viewForCourses() {
 		String listOfCourses = "";
 		for (Course course : Database.courses) {
@@ -191,12 +205,16 @@ public class Student extends User{
 		}
 		return listOfCourses;
 	}
-	
+	/*
+	 * using this method student creates organization
+	 */
 	public void creatingOrganization(String NameOfOrg) {
 		Organization org = new Organization(NameOfOrg,this);
 		Database.organizations.add(org);
 	}
-	
+	/*
+	 * in this method a student can join an existing organization
+	 */
 	public boolean joiningOrganization(String orgName) {
 		for (Organization org : Database.organizations) {
 			if (org.getTitle().equals(orgName)) {
@@ -206,7 +224,9 @@ public class Student extends User{
 		}
 		return false;
 	}
-	
+	/*
+	 * this method shows files for courses
+	 */
 	public String viewCourseFiles(String courseID) {
     	String courseFile = "";
         for (CourseFiles file: Database.courseFile) {
@@ -216,7 +236,9 @@ public class Student extends User{
         }
         return courseFile;
     }
-	
+	/*
+	 * using this method the student can borrow a book from the library
+	 */
 	public boolean orderBook(String bookID, String librarianID) {
 		for (User usr : Database.users) {
 			if (usr instanceof Librarian) {
