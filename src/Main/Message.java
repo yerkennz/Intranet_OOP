@@ -43,6 +43,9 @@ public class Message implements Serializable{
 		this.sender = sender;
 	}
 //----------------------------------------------------------------------------	
+	/*
+	 * this method shows information about messages
+	 */
 	public String showMessage() {
 		return "Message Information: "+"\nTitle: "+title+"\nText: "+text+
 				"\nSender: "+sender.getName();
