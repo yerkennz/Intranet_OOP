@@ -82,7 +82,9 @@ public class User implements Serializable, Comparable{
 	public void setLogin(String login) {
 		this.login = login;
 	}
-
+	/*
+	 * using this method user can change own password
+	 */
 	public boolean changePassword(String password, String newPassword) {
 		if (password.equals(this.password)) {
 			this.password = newPassword;
@@ -90,6 +92,9 @@ public class User implements Serializable, Comparable{
 		}
 		return false;
 	}
+	/*
+	 * this method shows news  
+	 */
 	public String viewNews() {
 		String listOfNews = "";
 		for (News news: Database.news) {
