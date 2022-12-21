@@ -33,6 +33,9 @@ public class News extends Message{
 		this.manager = manager;
 	}
 //----------------------------------------------------------	
+	/*
+	 * this method shows information about news
+	 */
 	public String showNewsInfo() {
 		return "Message Information: "+"\nTitle: "+this.getTitle()+"\nText: "+this.getText()+
 				"\nSender: "+this.getSender()+"\nDescription: "+description+"\nManager: "+manager.getName();
@@ -56,7 +59,9 @@ public class News extends Message{
 		News other = (News) obj;
 		return Objects.equals(description, other.description);
 	}
-
+	/*
+	 * news is shown here
+	 */
 	public String showNews() {
 		String str = "";
 		for (News nws: Database.news) {
