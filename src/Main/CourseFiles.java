@@ -38,6 +38,9 @@ public class CourseFiles {
 		this.course = course;
 	}
 	//--------------------------------------------------------------------
+	/*
+	 * this method displays files of disciplines
+	 */
 	public String showFileInfo() {
 		return "File name:"+fileName+"Owner: "+owner+"Course: "+course;
 	}
