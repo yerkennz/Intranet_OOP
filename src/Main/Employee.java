@@ -41,11 +41,16 @@ public class Employee extends User implements SendMessage{
 	public int getSalary() {
 		return salary;
 	}
-	
+	/*
+	 * using this method employee can send messages to other employees
+	 */
 	public void sendMessage(String title, String text) {
 		Message ms = new Message(title,text,this);
 		Database.messages.add(ms);
 	}
+	/*
+	 * this method accepts message from other employees
+	 */
 	public String getMessage() {
 		String str = "";
 		for (Message ms : Database.messages) {
