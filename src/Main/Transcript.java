@@ -15,6 +15,9 @@ public class Transcript {
 	public void setAverageGPA(double averageGPA) {
 		this.averageGPA = averageGPA;
 	}
+	/*
+	 * this method calculate and return the average GPA
+	 */
 	public void calculateGPA() {
 		double cnt = 0;
 		int numCourse = 0;
@@ -26,11 +29,17 @@ public class Transcript {
 		}
 		averageGPA = cnt/numCourse;
 	}
+	/*
+	 * this method shows if teacher put mark then it will change in transcript
+	 */
 	public void putMark(int semester, Course course, Mark mark) {
 		semesters.get(semester).put(course,mark);
 		numberOfCredit += course.getCredits();
 		calculateGPA();
 	}
+	/*
+	 * this method shows information about student's mark 
+	 */
 	public String showInfo() {
 		String str = "";
 		str += "Average GPA: "+this.averageGPA;
