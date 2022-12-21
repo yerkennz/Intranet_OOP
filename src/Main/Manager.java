@@ -36,6 +36,9 @@ public class Manager extends Employee implements AddRemoveStudent,viewInformatio
 		this.managerType = managerType;
 	}
 //---------------------------------------------------------------------------------------------------------
+	/*
+	 * here manager sees courses chosen by student 
+	 */
 	public String viewForCourse(String courseID) {
     	String str = "";
     	for (CourseFiles file: Database.courseFile) {
@@ -44,6 +47,9 @@ public class Manager extends Employee implements AddRemoveStudent,viewInformatio
     	}
     	return str;
     }
+	/*
+	 * here manager can see student's transcript 
+	 */
 	public String viewTranscript(String studentID) {
     	for (User usr: Database.users) {
     		if (usr instanceof Student) {
@@ -55,6 +61,9 @@ public class Manager extends Employee implements AddRemoveStudent,viewInformatio
     	}
         return "There is no information";
     }
+	/*
+	 * here manager sees attendance of courses 
+	 */
 	public String viewAttendance(String studentID, String courseCode) {
     	for (User usr: Database.users) {
     		if (usr instanceof Student) {
@@ -70,10 +79,16 @@ public class Manager extends Employee implements AddRemoveStudent,viewInformatio
     	} 
     	return "Empty attendance list";
     }
+	/*
+	 * the manager is the only person who can announce the news and this method creates the news
+	 */
 	public void createNews(String text) {
 		News nw = new News(text,this);
 		Database.news.add(nw);
 	}
+	/*
+	 * this method displays private information about student for manager  
+	 */
 	public String viewPrivateInformation(String userID) {
 		for (User usr: Database.users) {
     		if (usr instanceof Student) {
@@ -93,6 +108,9 @@ public class Manager extends Employee implements AddRemoveStudent,viewInformatio
     	}
         return "There is no information";
     }
+	/*
+	 * here manager adds student to disciplines 
+	 */
 	public boolean addStudentToCourse(String studentID, String courseCode) {
     	for (User usr: Database.users) {
     		if (usr instanceof Student) {
@@ -110,7 +128,9 @@ public class Manager extends Employee implements AddRemoveStudent,viewInformatio
         return false;
     }
 
-   
+   /*
+	 * here manager removes students from disciplines 
+	 */
     public boolean removeStudentFromCourse(String studentID, String courseCode) {
     	for (User usr: Database.users) {
     		if (usr instanceof Student) {
@@ -127,6 +147,9 @@ public class Manager extends Employee implements AddRemoveStudent,viewInformatio
     	}
         return false;
     }
+	/*
+     * using this method manager sees files of courses
+     */
 	 public String viewCourseFiles(String teacherID) {
 	    	String str ="";
 	    	for (User usr: Database.users) {
@@ -140,7 +163,9 @@ public class Manager extends Employee implements AddRemoveStudent,viewInformatio
 	    	}
 	    	return "File is emtpy";
 	}
-	
+	/*
+	 * this method allows create new course
+	 */
 	 public boolean createCourse(String courseName, int credits, String courseCode) {
 		 Course crs = new Course(courseName, credits, courseCode);
 	    	for (Course course: Database.courses) {
@@ -151,6 +176,9 @@ public class Manager extends Employee implements AddRemoveStudent,viewInformatio
 	    	}
 	    	return false;
 	 }
+	 /*
+	  * here manager sees statistic of students(e.g. who has high GPA and etc.)
+	  */
 	 public String showStatistic() {
 		 String numberofStudent = "";
 		 String numberofTeacher = "";
@@ -230,7 +258,9 @@ public class Manager extends Employee implements AddRemoveStudent,viewInformatio
 		    		 top3StudentbyGPA+"\n"+top3TeacherbyRating+"\n"+worst3StudentbyGPA;
 		 		 
 	 }
-	 
+	 /*
+	  * this method shows information about manager
+	  */
 	 public String showInfo() {
 		 return "Name: "+this.getName()+"Surname: "+this.getSurname()+
 				 "Manager id: "+this.getId()+"Type: "+this.getManagerType();
