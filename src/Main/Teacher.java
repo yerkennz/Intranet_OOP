@@ -53,6 +53,9 @@ public class Teacher extends Employee implements AddRemoveStudent,viewInformatio
 		this.rating = (this.rating+num)/2;
 	}
 //--------------------------------------------------------------
+	/*
+	 * using this method teacher puts mark
+	 */
 	public boolean putMark(Course course, String studentID, double score, String att) {
 		for (User usr: Database.users) {
 			if (usr instanceof Student) {
@@ -86,7 +89,9 @@ public class Teacher extends Employee implements AddRemoveStudent,viewInformatio
     		}
     	}
     }
-   
+   /*
+	 * here teacher will open attendance so that students can check in
+	 */
     public String viewAttendance(String studentID, String courseCode) {
     	for (User usr: Database.users) {
     		if (usr instanceof Student) {
@@ -102,7 +107,9 @@ public class Teacher extends Employee implements AddRemoveStudent,viewInformatio
     	} 
     	return "Empty attendance list";
     }
-   
+     /*
+    * here teacher sees private information of students
+    */
     public String viewPrivateInformation(String studentID) {
     	for (User usr: Database.users) {
     		if (usr instanceof Student) {
@@ -114,8 +121,9 @@ public class Teacher extends Employee implements AddRemoveStudent,viewInformatio
     	}
         return "There is no information";
     }
-
-   
+ /*
+    * using this method teachers sees transcript of student
+    */
     public String viewTranscript(String studentID) {
     	for (User usr: Database.users) {
     		if (usr instanceof Student) {
@@ -127,7 +135,9 @@ public class Teacher extends Employee implements AddRemoveStudent,viewInformatio
     	}
         return "There is no information";
     }
-    
+     /*
+     * using this method teachers adds students to course
+     */
     public boolean addStudentToCourse(String studentID, String courseCode) {
     	for (User usr: Database.users) {
     		if (usr instanceof Student) {
@@ -145,7 +155,9 @@ public class Teacher extends Employee implements AddRemoveStudent,viewInformatio
         return false;
     }
 
-   
+    /*
+     * using this method teachers removes students from course
+     */
     public boolean removeStudentFromCourse(String studentID, String courseCode) {
     	for (User usr: Database.users) {
     		if (usr instanceof Student) {
@@ -162,8 +174,10 @@ public class Teacher extends Employee implements AddRemoveStudent,viewInformatio
     	}
         return false;
     }
-
-    
+ 
+	/*
+     * this method displays files for courses
+     */
     public String viewCourseFiles() {
     	String str ="";
     	if (!this.lessons.isEmpty()) {
@@ -177,7 +191,9 @@ public class Teacher extends Employee implements AddRemoveStudent,viewInformatio
 
  
 
-   
+    /*
+    * using this method teacher sees courses
+    */
     public String viewForCourse(String courseID) {
     	String str = "";
     	for (CourseFiles file: Database.courseFile) {
@@ -191,7 +207,9 @@ public class Teacher extends Employee implements AddRemoveStudent,viewInformatio
 	public String toString() {
 		return "Teacher [Degree=" + degree + "]";
 	}
-
+	/*
+	 * this method shows information about teacher
+	 */
 	public String showInfo() {
 		return "Name: "+this.getName()+"\nDegree: "+this.degree+"\nRating: "+this.rating;
 	}
