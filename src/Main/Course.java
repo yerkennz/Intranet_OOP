@@ -98,6 +98,9 @@ public class Course {
 		this.typeOfCourse = typeOfCourse;
 	}
 //----------------------------------------------------------------
+	/*
+	 * this method shows the attandance 
+	 */
 	public String showAttendance() {
 		String str = "";
 		for (Entry<String, Boolean> m : attendance.entrySet()) {
@@ -105,6 +108,9 @@ public class Course {
 		}
 		return str;
 	}
+	/*
+	 * this method adds the necessary learning materials to the relevant discipline
+	 */
 	public boolean addCourseFile(CourseFiles file) {
 		if (!courseFile.contains(file)) {
 			courseFile.add(file);
@@ -112,6 +118,9 @@ public class Course {
 		}
 		return false;
 	}
+	/*
+	 * this method removes the necessary learning materials to the relevant discipline
+	 */
 	public boolean removeCourseFile(CourseFiles file) {
 		if (!courseFile.contains(file)) {
 			courseFile.remove(file);
@@ -123,6 +132,9 @@ public class Course {
 		Course cr = (Course) o;
 		return this.courseCode.compareTo(cr.courseCode);
 	}
+	/*
+	 * this method shows information about courses
+	 */
 	public String showInfo() {
 		return "Course name: "+courseName+"\nPrereq: "+prereq+"\nCourse code:"
 				+courseCode+"\nDescription: "+description+"\nCourse type: "+typeOfCourse;
