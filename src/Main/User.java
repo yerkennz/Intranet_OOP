@@ -85,7 +85,7 @@ public class User implements Serializable, Comparable{
 
 	public boolean changePassword(String password, String newPassword) {
 		if (password.equals(this.password)) {
-			this.password = password;
+			this.password = newPassword;
 			return true;
 		}
 		return false;
